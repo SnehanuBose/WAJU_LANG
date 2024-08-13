@@ -1,7 +1,11 @@
-expr    : term ((PLUS|MINUS) term)*
+expr    : term ((TT_PLUS|TT_MINUS) term)*
 
-term    : factor ((MUL|DIV) factor)*
+term    : factor ((TT_MULTIPLY|TT_DIVIDE) factor)*
 
-factor  : INT|FLOAT
-				: (PLUS|MINUS) factor
-				: LPAREN expr RPAREN
+factor	: (TT_PLUS|TT_MINUS) factor
+				: power
+
+power		: atom (POW factor)*
+
+atom 		: TT_INT|TT_FLOAT
+				: TT_LEFTPAREN expr TT_RIGHTPAREN
