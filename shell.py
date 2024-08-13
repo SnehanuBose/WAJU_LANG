@@ -3,7 +3,6 @@ import waju
 
 
 
-
 while True:
     instruction = input("waju > ")
     # result,error = waju1.run('<stdin>', instruction)
@@ -13,6 +12,7 @@ while True:
         print(error.toString())
     else:
         print(result)
+
 
     if('..' in instruction):
         break
